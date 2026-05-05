@@ -1,0 +1,17 @@
+# Dependencies
+/node_modules
+/package-lock.json
+/dist
+
+# Local env files (Vite)
+.env*
+*.local
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# TypeScript incremental build info
+*.tsbuildinfo
