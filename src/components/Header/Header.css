@@ -19,12 +19,15 @@
 }
 
 .nav-link {
+	align-items: center;
+	display: inline-flex;
+	height: 50px;
 	position: relative;
 }
 
 .nav-link[data-active]::after {
 	background-color: currentColor;
-	bottom: -16px;
+	bottom: 0;
 	content: "";
 	height: 2px;
 	left: 0;
