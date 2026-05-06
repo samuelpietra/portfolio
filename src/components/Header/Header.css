@@ -1,0 +1,50 @@
+.header {
+	background: var(--color-background);
+	border-bottom: 1px solid var(--gray-a4);
+	height: 50px;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.header-inner {
+	height: 100%;
+	margin: 0 auto;
+	max-width: var(--container-4);
+}
+
+.header-brand {
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+
+.nav-link {
+	position: relative;
+}
+
+.nav-link[data-active]::after {
+	background-color: currentColor;
+	bottom: -16px;
+	content: "";
+	height: 2px;
+	left: 0;
+	position: absolute;
+	right: 0;
+}
+
+/* element prefix raises specificity above Radix's `.rt-reset:where(a) { all: unset }` */
+a.dropdown-nav-link {
+	color: var(--gray-12);
+}
+
+a.dropdown-nav-link[data-highlighted] {
+	background-color: var(--accent-a3);
+}
+
+a.dropdown-nav-link[data-active] {
+	background-color: var(--accent-a5);
+}
+
+a.dropdown-nav-link[data-active][data-highlighted] {
+	background-color: var(--accent-a6);
+}

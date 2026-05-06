@@ -1,8 +1,8 @@
 html {
 	box-sizing: border-box;
-	overflow: -moz-scrollbars-vertical;
 	overflow-y: scroll;
 	scroll-behavior: smooth;
+	scroll-padding-top: 64px;
 }
 
 *,
@@ -13,4 +13,13 @@ html {
 
 body {
 	margin: 0;
+}
+
+#root {
+	min-height: 100dvh;
+}
+
+main {
+	max-width: var(--container-4);
+	margin: 0 auto;
 }
