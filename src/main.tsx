@@ -4,6 +4,7 @@ import { ThemeProvider } from "pietra-ui";
 import "pietra-ui/styles.css";
 
 import { useSystemAppearance } from "@/hooks";
+import { LocaleProvider } from "@/i18n";
 
 import App from "./App.tsx";
 import "./index.css";
@@ -13,7 +14,9 @@ function Root() {
 
   return (
     <ThemeProvider appearance={appearance}>
-      <App />
+      <LocaleProvider>
+        <App />
+      </LocaleProvider>
     </ThemeProvider>
   );
 }

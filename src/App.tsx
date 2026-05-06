@@ -1,12 +1,8 @@
 import { Container, Heading, Section } from "pietra-ui";
 
 import { Header } from "@/components/Header";
-
-const SECTIONS = [
-  { id: "about", title: "About" },
-  { id: "projects", title: "Projects" },
-  { id: "resume", title: "Resume" },
-];
+import { SECTIONS } from "@/consts";
+import { FormattedMessage } from "@/i18n";
 
 export default function App() {
   return (
@@ -16,7 +12,9 @@ export default function App() {
         {SECTIONS.map((section) => (
           <Section key={section.id} size="4" id={section.id} style={{ minHeight: "100vh" }}>
             <Container size="3">
-              <Heading size="6">{section.title}</Heading>
+              <Heading size="6">
+                <FormattedMessage id={`nav.${section.id}`} defaultMessage={section.label} />
+              </Heading>
             </Container>
           </Section>
         ))}

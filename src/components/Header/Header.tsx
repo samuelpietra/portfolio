@@ -3,12 +3,17 @@ import { DropdownMenu, Flex, IconButton, Link, Separator } from "pietra-ui";
 
 import "./Header.css";
 
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { SECTION_IDS, SECTIONS } from "@/consts";
 import { useScrollSpy } from "@/hooks";
+import { FormattedMessage, isSupported, SUPPORTED_LOCALES, useIntl, useLocale } from "@/i18n";
 
-import { NAV_ITEMS, SECTION_IDS, SOCIAL_LINKS } from "./Header.consts";
+import { SOCIAL_LINKS } from "./Header.consts";
 
 export function Header() {
   const { activeAnchorId, setActiveAnchorId } = useScrollSpy(SECTION_IDS);
+  const { locale, setLocale } = useLocale();
+  const intl = useIntl();
 
   const isActive = (id: string) => activeAnchorId === id;
   const handleNavClick = (id: string) => setActiveAnchorId(id);
@@ -29,19 +34,19 @@ export function Header() {
         </Link>
 
         <Flex align="center" display={{ initial: "none", sm: "flex" }} gap="5">
-          {NAV_ITEMS.map((item) => (
+          {SECTIONS.map((section) => (
             <Link
               className="nav-link"
               color="gray"
-              data-active={isActive(item.id) || undefined}
-              highContrast={isActive(item.id) || undefined}
-              href={`#${item.id}`}
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
+              data-active={isActive(section.id) || undefined}
+              highContrast={isActive(section.id) || undefined}
+              href={`#${section.id}`}
+              key={section.id}
+              onClick={() => handleNavClick(section.id)}
               size="2"
               underline="none"
             >
-              {item.label}
+              <FormattedMessage id={`nav.${section.id}`} defaultMessage={section.label} />
             </Link>
           ))}
           <Separator orientation="vertical" size="1" />
@@ -66,12 +71,19 @@ export function Header() {
               </IconButton>
             );
           })}
+          <Separator orientation="vertical" size="1" />
+          <LanguageSwitcher />
         </Flex>
 
         <Flex display={{ initial: "flex", sm: "none" }}>
           <DropdownMenu.Root modal={false}>
             <DropdownMenu.Trigger>
-              <IconButton aria-label="Open menu" color="gray" size="3" variant="ghost">
+              <IconButton
+                aria-label={intl.formatMessage({ id: "header.openMenu" })}
+                color="gray"
+                size="3"
+                variant="ghost"
+              >
                 <Menu size={24} />
               </IconButton>
             </DropdownMenu.Trigger>
@@ -81,17 +93,17 @@ export function Header() {
               onCloseAutoFocus={(e) => e.preventDefault()}
               sideOffset={8}
             >
-              {NAV_ITEMS.map((item) => (
-                <DropdownMenu.Item key={item.id} asChild>
+              {SECTIONS.map((section) => (
+                <DropdownMenu.Item key={section.id} asChild>
                   <Link
                     className="dropdown-nav-link"
                     color="gray"
-                    data-active={isActive(item.id) || undefined}
-                    href={`#${item.id}`}
-                    onClick={() => handleNavClick(item.id)}
+                    data-active={isActive(section.id) || undefined}
+                    href={`#${section.id}`}
+                    onClick={() => handleNavClick(section.id)}
                     underline="none"
                   >
-                    {item.label}
+                    <FormattedMessage id={`nav.${section.id}`} defaultMessage={section.label} />
                   </Link>
                 </DropdownMenu.Item>
               ))}
@@ -117,6 +129,21 @@ export function Header() {
                   </DropdownMenu.Item>
                 );
               })}
+              <DropdownMenu.Separator />
+              <DropdownMenu.RadioGroup
+                onValueChange={(value) => {
+                  if (isSupported(value)) {
+                    setLocale(value);
+                  }
+                }}
+                value={locale}
+              >
+                {SUPPORTED_LOCALES.map((option) => (
+                  <DropdownMenu.RadioItem key={option} value={option}>
+                    {intl.formatMessage({ id: `language.${option}` })}
+                  </DropdownMenu.RadioItem>
+                ))}
+              </DropdownMenu.RadioGroup>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
         </Flex>
