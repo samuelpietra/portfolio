@@ -22,6 +22,7 @@ export function Header() {
     <header className="header">
       <Flex align="center" className="header-inner" justify="between" px="5">
         <Link
+          aria-label="Samuel Pietra"
           className="header-brand"
           color="gray"
           highContrast
@@ -29,9 +30,8 @@ export function Header() {
           size="1"
           underline="none"
           weight="bold"
-        >
-          Samuel Pietra
-        </Link>
+        />
+
 
         <Flex align="center" display={{ initial: "none", sm: "flex" }} gap="5">
           {SECTIONS.map((section) => (

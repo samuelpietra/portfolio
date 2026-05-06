@@ -14,8 +14,25 @@
 }
 
 .header-brand {
-	letter-spacing: 4px;
+	display: inline-flex;
+	flex-direction: column;
+	height: 50px;
+	justify-content: center;
+	letter-spacing: 2px;
+	line-height: 1;
 	text-transform: uppercase;
+}
+
+.header-brand::before {
+	color: var(--gray-11);
+	content: "Samuel";
+	font-size: 10px;
+}
+
+.header-brand::after {
+	color: var(--gray-12);
+	content: "Pietra";
+	font-size: 14px;
 }
 
 .nav-link {
