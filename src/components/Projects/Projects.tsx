@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import { Avatar, Card, Flex, Grid, Heading, Text } from "pietra-ui";
 
 import "./Projects.css";
@@ -42,6 +43,23 @@ export function Projects() {
               </a>
             </Card>
           ))}
+          <Card size="1" variant="classic">
+            <Flex align="center" gap="3">
+              <Avatar
+                fallback={<Plus size={20} />}
+                radius="full"
+                size={{ initial: "3", sm: "4" }}
+              />
+              <Flex direction="column">
+                <Text size={{ initial: "2", sm: "3" }} weight="bold">
+                  <FormattedMessage id="projects.comingSoon.title" />
+                </Text>
+                <Text color="gray" size={{ initial: "1", sm: "2" }}>
+                  <FormattedMessage id="projects.comingSoon.subtitle" />
+                </Text>
+              </Flex>
+            </Flex>
+          </Card>
         </Grid>
       </Flex>
     </section>
