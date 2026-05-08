@@ -3,14 +3,14 @@ import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "pietra-ui";
 import "pietra-ui/styles.css";
 
-import { useSystemAppearance } from "@/hooks";
+import { AppearanceProvider, useAppearance } from "@/appearance";
 import { LocaleProvider } from "@/i18n";
 
 import App from "./App.tsx";
 import "./index.css";
 
-function Root() {
-  const appearance = useSystemAppearance();
+function ThemedApp() {
+  const { appearance } = useAppearance();
 
   return (
     <ThemeProvider appearance={appearance}>
@@ -25,6 +25,8 @@ const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <StrictMode>
-    <Root />
+    <AppearanceProvider>
+      <ThemedApp />
+    </AppearanceProvider>
   </StrictMode>,
 );

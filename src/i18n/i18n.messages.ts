@@ -15,6 +15,10 @@ const en = {
   "nav.about": "About",
   "nav.projects": "Projects",
   "nav.resume": "Resume",
+  "themeSwitcher.dark": "Dark",
+  "themeSwitcher.light": "Light",
+  "themeSwitcher.toDark": "Switch to dark mode",
+  "themeSwitcher.toLight": "Switch to light mode",
 } as const;
 
 export type MessageId = keyof typeof en;
@@ -36,6 +40,10 @@ const pt: Catalog = {
   "nav.about": "Sobre",
   "nav.projects": "Projetos",
   "nav.resume": "Currículo",
+  "themeSwitcher.dark": "Escuro",
+  "themeSwitcher.light": "Claro",
+  "themeSwitcher.toDark": "Mudar para modo escuro",
+  "themeSwitcher.toLight": "Mudar para modo claro",
 };
 
 export const messages: Record<Locale, Catalog> = { en, pt };

@@ -4,7 +4,7 @@ import { IntlProvider } from "react-intl";
 import { DEFAULT_LOCALE, STORAGE_KEY } from "./i18n.consts";
 import { messages } from "./i18n.messages";
 import type { Locale } from "./i18n.types";
-import { detectLocale, isSupported } from "./i18n.utils";
+import { detectLocale, isSupportedLocale } from "./i18n.utils";
 
 interface LocaleContextValue {
   locale: Locale;
@@ -17,7 +17,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
 
-    if (stored && isSupported(stored)) {
+    if (stored && isSupportedLocale(stored)) {
       return stored;
     }
 

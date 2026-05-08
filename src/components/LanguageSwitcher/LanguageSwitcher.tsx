@@ -1,6 +1,6 @@
 import { Button, DropdownMenu } from "pietra-ui";
 
-import { isSupported, type Locale, SUPPORTED_LOCALES, useIntl, useLocale } from "@/i18n";
+import { isSupportedLocale, type Locale, SUPPORTED_LOCALES, useIntl, useLocale } from "@/i18n";
 
 const LOCALE_SHORT: Record<Locale, string> = {
   en: "EN",
@@ -26,7 +26,7 @@ export function LanguageSwitcher() {
       <DropdownMenu.Content align="end" onCloseAutoFocus={(e) => e.preventDefault()} sideOffset={8}>
         <DropdownMenu.RadioGroup
           onValueChange={(value) => {
-            if (isSupported(value)) {
+            if (isSupportedLocale(value)) {
               setLocale(value);
             }
           }}

@@ -1,7 +1,7 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./i18n.consts";
 import type { Locale } from "./i18n.types";
 
-export function isSupported(value: string): value is Locale {
+export function isSupportedLocale(value: string): value is Locale {
   return (SUPPORTED_LOCALES as readonly string[]).includes(value);
 }
 
@@ -9,7 +9,7 @@ export function detectLocale(): Locale {
   const browserLanguages = navigator.languages ?? [navigator.language];
 
   for (const language of browserLanguages) {
-    if (isSupported(language)) {
+    if (isSupportedLocale(language)) {
       return language;
     }
 

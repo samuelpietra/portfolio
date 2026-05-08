@@ -4,9 +4,10 @@ import { DropdownMenu, Flex, IconButton, Link, Separator } from "pietra-ui";
 import "./Header.css";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeSwitcher, ThemeSwitcherMenuItem } from "@/components/ThemeSwitcher";
 import { SECTION_IDS, SECTIONS } from "@/consts";
 import { useScrollSpy } from "@/hooks";
-import { FormattedMessage, isSupported, SUPPORTED_LOCALES, useIntl, useLocale } from "@/i18n";
+import { FormattedMessage, isSupportedLocale, SUPPORTED_LOCALES, useIntl, useLocale } from "@/i18n";
 
 import { SOCIAL_LINKS } from "./Header.consts";
 
@@ -72,6 +73,7 @@ export function Header() {
           })}
           <Separator orientation="vertical" size="1" />
           <LanguageSwitcher />
+          <ThemeSwitcher />
         </Flex>
 
         <Flex display={{ initial: "flex", sm: "none" }}>
@@ -131,7 +133,7 @@ export function Header() {
               <DropdownMenu.Separator />
               <DropdownMenu.RadioGroup
                 onValueChange={(value) => {
-                  if (isSupported(value)) {
+                  if (isSupportedLocale(value)) {
                     setLocale(value);
                   }
                 }}
@@ -143,6 +145,8 @@ export function Header() {
                   </DropdownMenu.RadioItem>
                 ))}
               </DropdownMenu.RadioGroup>
+              <DropdownMenu.Separator />
+              <ThemeSwitcherMenuItem />
             </DropdownMenu.Content>
           </DropdownMenu.Root>
         </Flex>
