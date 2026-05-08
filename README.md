@@ -15,11 +15,11 @@ A personal portfolio built as a single-page React app — bilingual (English + P
 Requires Node (see `.nvmrc`).
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 npm start
 ```
 
-> `--legacy-peer-deps` is needed because `react-intl` lists `typescript` as an *optional* peer with a range that excludes TS 6. We ignore it intentionally.
+> The repo ships an `.npmrc` with `legacy-peer-deps=true` because `react-intl` lists `typescript` as an *optional* peer with a range that excludes TS 6. We ignore it intentionally.
 
 The dev server runs at <http://localhost:3123>.
 
