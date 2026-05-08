@@ -32,7 +32,6 @@ export function Header() {
           weight="bold"
         />
 
-
         <Flex align="center" display={{ initial: "none", sm: "flex" }} gap="5">
           {SECTIONS.map((section) => (
             <Link

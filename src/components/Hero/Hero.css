@@ -1,0 +1,99 @@
+.hero {
+	align-items: center;
+	display: flex;
+	min-height: 100svh;
+	padding-bottom: 30svh;
+}
+
+.hero-inner {
+	align-items: center;
+	width: 100%;
+}
+
+.hero-text {
+	max-width: 540px;
+	text-align: center;
+}
+
+.hero-stages {
+	justify-content: center;
+}
+
+.hero-stages > span {
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+
+/* Persistent across all sections via position: fixed.
+   Section content must keep clear of the right edge (desktop)
+   and the bottom band (mobile) to avoid overlap with the portrait. */
+.hero-portrait {
+	align-items: flex-end;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	margin: 0 auto;
+	max-width: var(--container-4);
+	padding: 0 var(--space-5);
+	pointer-events: none;
+	position: fixed;
+	right: 0;
+	top: var(--header-height);
+	z-index: 1;
+}
+
+.hero-image {
+	mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+	max-height: 30svh;
+	object-fit: contain;
+}
+
+@media (min-width: 520px) {
+	.hero {
+		padding-bottom: 40svh;
+	}
+
+	.hero-image {
+		max-height: 40svh;
+	}
+}
+
+@media (min-width: 768px) {
+	.hero {
+		padding-bottom: 50svh;
+	}
+
+	.hero-image {
+		max-height: 50svh;
+	}
+}
+
+/* Side-by-side layout: desktop (≥1024px wide) OR short viewports
+   like phone in landscape (≤600px tall). */
+@media (min-width: 1024px), (max-height: 600px) {
+	.hero {
+		padding-bottom: 0;
+	}
+
+	.hero-inner {
+		align-items: stretch;
+	}
+
+	.hero-text {
+		text-align: start;
+	}
+
+	.hero-stages {
+		justify-content: flex-start;
+	}
+
+	.hero-portrait {
+		justify-content: flex-end;
+	}
+
+	.hero-image {
+		max-height: calc(100svh - var(--header-height));
+		max-width: 50%;
+	}
+}

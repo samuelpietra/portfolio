@@ -1,8 +1,12 @@
+:root {
+	--header-height: 50px;
+}
+
 html {
 	box-sizing: border-box;
 	overflow-y: scroll;
 	scroll-behavior: smooth;
-	scroll-padding-top: 64px;
+	scroll-padding-top: calc(var(--header-height) + 14px);
 }
 
 *,
