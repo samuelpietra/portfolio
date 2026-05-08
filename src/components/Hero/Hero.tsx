@@ -14,9 +14,9 @@ export function Hero() {
 
   return (
     <>
-      <Box className="hero">
-        <Flex className="hero-inner" direction="column" gap="6" justify="center" px="5">
-          <Flex className="hero-text" direction="column" gap="4">
+      <Box className="section-frame">
+        <Flex className="section-frame-inner" direction="column" gap="6" justify="center" px="5">
+          <Flex className="section-frame-content" direction="column" gap="4">
             <Heading size={{ initial: "8", sm: "9" }}>
               <FormattedMessage id="hero.headline" />
             </Heading>

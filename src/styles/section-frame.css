@@ -1,0 +1,49 @@
+/* Shared layout used by Hero, About, Projects (and future sections):
+   viewport-tall flex column, content centered when stacked, switches to
+   left-aligned at the side-by-side breakpoint (≥1024px wide or ≤600px tall).
+   The padding-bottom tiers reserve space for the fixed Hero portrait. */
+
+.section-frame {
+	align-items: center;
+	display: flex;
+	min-height: 100svh;
+	padding-bottom: 30svh;
+}
+
+.section-frame-inner {
+	align-items: center;
+	width: 100%;
+}
+
+.section-frame-content {
+	max-width: 540px;
+	text-align: center;
+}
+
+@media (min-width: 520px) {
+	.section-frame {
+		padding-bottom: 40svh;
+	}
+}
+
+@media (min-width: 768px) {
+	.section-frame {
+		padding-bottom: 50svh;
+	}
+}
+
+/* Side-by-side: ≥1024px wide OR ≤600px tall (e.g. phone in landscape).
+   Releases the bottom padding and switches the content to left-aligned. */
+@media (min-width: 1024px), (max-height: 600px) {
+	.section-frame {
+		padding-bottom: 0;
+	}
+
+	.section-frame-inner {
+		align-items: stretch;
+	}
+
+	.section-frame-content {
+		text-align: start;
+	}
+}

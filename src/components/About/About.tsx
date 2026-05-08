@@ -7,9 +7,9 @@ import { FormattedMessage } from "@/i18n";
 
 export function About() {
   return (
-    <section className="about" id="about">
-      <Flex className="about-inner" direction="column" gap="6" justify="center" px="5">
-        <Flex className="about-text" direction="column" gap="4">
+    <section className="section-frame" id="about">
+      <Flex className="section-frame-inner" direction="column" gap="6" justify="center" px="5">
+        <Flex className="section-frame-content" direction="column" gap="4">
           <Heading as="h2" size={{ initial: "8", sm: "9" }}>
             <FormattedMessage id="nav.about" />
           </Heading>

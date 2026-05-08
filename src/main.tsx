@@ -8,6 +8,7 @@ import { LocaleProvider } from "@/i18n";
 
 import App from "./App.tsx";
 import "./index.css";
+import "./styles/section-frame.css";
 
 function ThemedApp() {
   const { appearance } = useAppearance();
