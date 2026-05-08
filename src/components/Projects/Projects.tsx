@@ -3,10 +3,12 @@ import { Avatar, Card, Flex, Grid, Heading, Text } from "pietra-ui";
 
 import "./Projects.css";
 
+import { useAppearance } from "@/appearance";
 import { PROJECTS } from "@/consts";
 import { FormattedMessage, useIntl } from "@/i18n";
 
 export function Projects() {
+  const { appearance } = useAppearance();
   const intl = useIntl();
 
   return (
@@ -29,7 +31,7 @@ export function Projects() {
                     fallback={project.fallback}
                     radius="full"
                     size={{ initial: "3", sm: "4" }}
-                    src={project.image ?? undefined}
+                    src={project.image?.[appearance] ?? undefined}
                   />
                   <Flex direction="column">
                     <Text size={{ initial: "2", sm: "3" }} weight="bold">
