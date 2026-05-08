@@ -26,6 +26,9 @@ const en = {
   "projects.pokedex.label": "pokedex on GitHub",
   "projects.portfolio.description": "This website!",
   "projects.portfolio.label": "portfolio on GitHub",
+  "resume.body":
+    "Besides social media, you can learn more about me through my <a>resume</a>. It will be a pleasure to do business with you!",
+  "resume.linkLabel": "Open resume in new tab",
   "themeSwitcher.dark": "Dark",
   "themeSwitcher.light": "Light",
   "themeSwitcher.toDark": "Switch to dark mode",
@@ -62,6 +65,9 @@ const pt: Catalog = {
   "projects.pokedex.label": "pokedex no GitHub",
   "projects.portfolio.description": "Este mesmo site!",
   "projects.portfolio.label": "portfolio no GitHub",
+  "resume.body":
+    "Além das redes sociais, você pode saber mais sobre mim através do meu <a>currículo</a>. Será um prazer fazer negócios!",
+  "resume.linkLabel": "Abrir currículo em nova aba",
   "themeSwitcher.dark": "Escuro",
   "themeSwitcher.light": "Claro",
   "themeSwitcher.toDark": "Mudar para modo escuro",
