@@ -1,5 +1,6 @@
 import { Container, Heading, Section } from "pietra-ui";
 
+import { About } from "@/components/About";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SECTIONS } from "@/consts";
@@ -11,7 +12,8 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        {SECTIONS.map((section) => (
+        <About />
+        {SECTIONS.filter((section) => section.id !== "about").map((section) => (
           <Section key={section.id} size="4" id={section.id} style={{ minHeight: "100vh" }}>
             <Container size="3">
               <Heading size="6">

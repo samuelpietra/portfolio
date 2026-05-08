@@ -1,6 +1,9 @@
 import type { Locale } from "./i18n.types";
 
 const en = {
+  "about.body":
+    "A software engineer. Raised in full path environments — from architecture to interface. Been writing the JavaScript-stack code with ❤︎ for 8+ years. Quite a trip!",
+  "about.reachMe": "Reach me on",
   "header.openMenu": "Open menu",
   "hero.challenge": "Challenge",
   "hero.headline": "Hi, I'm Sam.",
@@ -26,6 +29,9 @@ export type MessageId = keyof typeof en;
 type Catalog = Record<MessageId, string>;
 
 const pt: Catalog = {
+  "about.body":
+    "Um engenheiro de software. Criado em ambientes de segmento completo — da arquitetura à interface. Escrevendo código em JavaScript com ❤︎ há 8+ anos. Que jornada!",
+  "about.reachMe": "Me segue no",
   "header.openMenu": "Abrir menu",
   "hero.challenge": "Desafio",
   "hero.headline": "Prazer, Samuel.",

@@ -9,8 +9,6 @@ import { SECTION_IDS, SECTIONS } from "@/consts";
 import { useScrollSpy } from "@/hooks";
 import { FormattedMessage, isSupportedLocale, SUPPORTED_LOCALES, useIntl, useLocale } from "@/i18n";
 
-import { SOCIAL_LINKS } from "./Header.consts";
-
 export function Header() {
   const { activeAnchorId, setActiveAnchorId } = useScrollSpy(SECTION_IDS);
   const { locale, setLocale } = useLocale();
@@ -50,28 +48,6 @@ export function Header() {
             </Link>
           ))}
           <Separator orientation="vertical" size="1" />
-          {SOCIAL_LINKS.map((social) => {
-            const Icon = social.icon;
-
-            return (
-              <IconButton
-                aria-label={social.label}
-                asChild
-                color="gray"
-                key={social.label}
-                variant="ghost"
-              >
-                <a
-                  href={social.href}
-                  rel={social.external ? "noreferrer" : undefined}
-                  target={social.external ? "_blank" : undefined}
-                >
-                  <Icon size={20} />
-                </a>
-              </IconButton>
-            );
-          })}
-          <Separator orientation="vertical" size="1" />
           <LanguageSwitcher />
           <ThemeSwitcher />
         </Flex>
@@ -108,28 +84,6 @@ export function Header() {
                   </Link>
                 </DropdownMenu.Item>
               ))}
-              <DropdownMenu.Separator />
-              {SOCIAL_LINKS.map((social) => {
-                const Icon = social.icon;
-
-                return (
-                  <DropdownMenu.Item asChild key={social.label}>
-                    <Link
-                      className="dropdown-nav-link"
-                      color="gray"
-                      href={social.href}
-                      rel={social.external ? "noreferrer" : undefined}
-                      target={social.external ? "_blank" : undefined}
-                      underline="none"
-                    >
-                      <Flex align="center" gap="2">
-                        <Icon size={14} />
-                        {social.label}
-                      </Flex>
-                    </Link>
-                  </DropdownMenu.Item>
-                );
-              })}
               <DropdownMenu.Separator />
               <DropdownMenu.RadioGroup
                 onValueChange={(value) => {
